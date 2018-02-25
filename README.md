@@ -1,2 +1,2 @@
-# setup-guides
-Setup guides for various systems
+# howtodo
+Personal collection of installation and setup guides
