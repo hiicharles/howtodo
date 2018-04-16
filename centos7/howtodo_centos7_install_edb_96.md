@@ -136,6 +136,14 @@ Comment the existing and replace with new configuration to allow access from any
 ----
 
 	Check if plpython3.so has required dependencies
+    # ldd /opt/PostgreSQL/9.5/lib/postgresql/plpython3.so
+        linux-vdso.so.1 =>  (0x00007ffff3bd1000)
+        libpython3.3m.so.1.0 => not found
+        libc.so.6 => /lib64/libc.so.6 (0x00007fcd47502000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007fcd47aea000)
+
+    ** not that libpython3.3m.so.1.0 not found **
+
     # ldd /opt/PostgreSQL/9.6/lib/postgresql/plpython3.so
 	   linux-vdso.so.1 =>  (0x00007ffc431fb000)
 	   libpython3.3m.so.1.0 => not found
@@ -143,7 +151,6 @@ Comment the existing and replace with new configuration to allow access from any
 	   /lib64/ld-linux-x86-64.so.2 (0x0000557e39c48000)
     
     ** not that libpython3.3m.so.1.0 not found ** 
-
 
 
     Add to root environment 

@@ -1,7 +1,7 @@
 Howtodo - CentOS7 - Install Python 3.6
 ======================================
 
-#### Download installer from EnterpriseDB.
+#### Download and install Python 3.6
 ----
 
     # yum -y groupinstall "Development Tools"
