@@ -91,7 +91,7 @@ Howtodo - CentOS7 - Install EnterpriseDB Postgres Developer Standard 9.6 with Pl
     
     The installation come with pgAdmin4 v2.1 client.
 
-#### Edit /opt/PostgreSQL/9.6/pg_hba.conf 
+#### Edit /opt/PostgreSQL/9.6/data/pg_hba.conf 
 ----
 
 Comment the existing and replace with new configuration to allow access from any IPv4 and IPv6
@@ -104,7 +104,7 @@ Comment the existing and replace with new configuration to allow access from any
     #host    all             all             ::1/128                 md5
     host    all             all             ::/0                    md5
 
-    # sudo systemctl status restart
+    # sudo systemctl reload postgresql-9.6
     # sudo systemctl status postgresql-9.6
 
 

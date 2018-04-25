@@ -65,88 +65,10 @@ Import public SSH key to Compute Engine using Metadata
 		The authenticity of host '35.187.244.119 (35.187.X.X)' can't be established.
 		ECDSA key fingerprint is SHA256:vaNb71ZbUj8d0tGxKJQcdr80deKBzfPUNAvtFH8de6k.
 		Are you sure you want to continue connecting (yes/no)? yes
-		Warning: Permanently added '35.187.244.119' (ECDSA) to the list of known hosts.
-
-
-
-#### Connect to Compute Engine using Google Cloud SDK (Serial)
-----
-
-	- Setup Google Cloud SDK
-	$ gcloud compute instances list
-	NAME        ZONE               MACHINE_TYPE               PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
-	instance01  asia-southeast1-a  custom (2 vCPU, 8.00 GiB)               10.148.0.2   35.187.x.x  	RUNNING
-
-	$ gcloud compute instances add-metadata instance01 --metadata=serial-port-enable=1
-	Updated [https://www.googleapis.com/compute/v1/projects/my-project/zones/asia-southeast1-a/instances/bo-pgedb01].
-
-	$ gcloud compute connect-to-serial-port instance01 --port=2
-
-		WARNING: The public SSH key file for gcloud does not exist.
-		WARNING: The private SSH key file for gcloud does not exist.
-		WARNING: You do not have an SSH key for gcloud.
-		WARNING: SSH keygen will be executed to generate a key.
-		This tool needs to create the directory [/home/user/.ssh] before 
-		being able to generate SSH keys.
-		
-		Do you want to continue (Y/n)?  Y
-		
-		Generating public/private rsa key pair.
-		Enter passphrase (empty for no passphrase): 
-		Enter same passphrase again: 
-		Your identification has been saved in /home/user/.ssh/google_compute_engine.
-		Your public key has been saved in /home/user/.ssh/google_compute_engine.pub.
-		The key fingerprint is:
-		SHA256:mho9f2QZ4XPcMN1SY3uyTMKb78fJ2p4gujZVlAIhOxg user@ubuntu
-		The key's randomart image is:
-		+---[RSA 2048]----+
-		|     E . oo  ..=.|
-		|      o o .ooo+ +|
-		|     . o . o=+oo.|
-		|        . + oB.o.|
-		|        S  =+ o  |
-		|     . o  +. .   |
-		|    . =  o.. .o..|
-		|     o o oo ..oo+|
-		|    .   o+o  .+= |
-		+----[SHA256]-----+
-		Updating project ssh metadata.../Updated [https://www.googleapis.com/compute/v1/projects/my-project].                                                                                                                                  
-		Updating project ssh metadata...done.                                                                                                                                                                                                        
-		serialport: Connected to my-project.asia-southeast1-a.bo-pgedb01 port 2 (session ID: 2d1634b68b656b857f4a24aadf9f8d24370287944a68d88fef9e39aaf18bfe9f, active connections: 1).
-
-
-
-
-
-
-
-#### Connect to Compute Engine using Remote Desktop (for Windows)
-----
-
-	$ gcloud compute instances list
-	NAME        ZONE               MACHINE_TYPE               PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP     STATUS
-	instance01  asia-southeast1-a  custom (2 vCPU, 8.00 GiB)               10.148.0.2   35.187.x.x  	RUNNING
-
-	Use the EXTERNAL_IP with port 3389
-	
-	Note:
-	Only for Windows instance
-
-
-
-
-#### Verify installation
-----
-
-    # python3.6 -V
-    Python 3.6.3
   
-
 
 #### Source
 ----
 [Connecting to Instances](https://cloud.google.com/compute/docs/instances/connecting-to-instance)
-
-Creating a new SSH key
 [Creating a new SSH key](https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys#createsshkeys)
 
