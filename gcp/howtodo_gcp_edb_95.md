@@ -7,6 +7,7 @@ Howtodo - GCP - Setup EDB Postgresql 9.5
 
 	* postgresql-9.5.12-2-linux-x64.run
 	* edb_languagepack_95.bin
+	* edb_pgagent.bin
 
 
 #### Upload the files to your Google Cloud Compute Engine
@@ -15,9 +16,9 @@ Howtodo - GCP - Setup EDB Postgresql 9.5
 	$ sftp user@35.187.X.X
 	sftp> put postgresql-9.5.12-2-linux-x64.run
 	sftp> put edb_languagepack_95.bin
+	sftp> put edb_pgagent.bin
 
 	
-
 #### Change permission
 ----
 
@@ -30,9 +31,10 @@ Make the files executable.
 
 	$ sudo chmod +x postgresql-9.5.12-2-linux-x64.run
 	$ sudo chmod +x edb_languagepack_95.bin
+	$ sudo chmod +x edb_pgagent.bin
 
 
-#### Install Postgresql 9.5
+#### Install EDB Postgresql 9.5
 
 	$ sudo ./postgresql-9.5.12-2-linux-x64.run --mode text
 
@@ -90,6 +92,75 @@ Make the files executable.
 		----------------------------------------------------------------------------
 		Setup has finished installing PostgreSQL on your computer.
 
+
+#### Install EDB PgAgent
+
+
+	$ sudo	./edb_pgagent.bin --mode text
+
+		----------------------------------------------------------------------------
+		Welcome to the pgAgent Setup Wizard.
+
+		----------------------------------------------------------------------------
+		Please select an empty directory for pgAgent installation.
+
+		Installation Directory [/opt/pgAgent]: 
+
+		----------------------------------------------------------------------------
+		Upgrade Mode
+
+		Upgrade mode will prevent the installer from modifying the database cluster by 
+		loading pgAgent SQL scripts, in preparation for upgrading from earlier releases 
+		of PostgreSQL using the pg_upgrade tool.
+
+		Upgrade Mode [y/N]: N
+
+
+		----------------------------------------------------------------------------
+		PostgreSQL Installation Details 
+
+		Please verify the PostgreSQL installation details
+
+		Host [localhost]: 
+
+		User Name [postgres]: 
+
+		Password :
+
+		Port [5432]: 
+
+		----------------------------------------------------------------------------
+		pgAgent service account
+
+		Please provide the user name of the account under which the pgAgent service will 
+		run.
+		The .pgpass file will be created in the account home directory.
+		If the user account does not exist it will be created.
+
+		Operating system username [postgres]: 
+
+		----------------------------------------------------------------------------
+		Setup is now ready to begin installing pgAgent on your computer.
+
+		Do you want to continue? [Y/n]: Y
+
+		----------------------------------------------------------------------------
+		Please wait while Setup installs pgAgent on your computer.
+
+		Installing
+		0% ______________ 50% ______________ 100%
+		#########################################
+
+		Info: Created and configured the 'pgagent' schema in the 'postgres' database. 
+		Press [Enter] to continue:
+		----------------------------------------------------------------------------
+		EnterpriseDB is the leading provider of value-added products and services for 
+		the Postgres community.
+
+		Please visit our website at www.enterprisedb.com
+
+	
+	You might want to create ~/.pgpass for pgagent to access the database.
 
 
 #### Install EDB Language Pack 9.5
@@ -243,6 +314,11 @@ Add new access.
     # systemctl restart postgresql-9.5
 
 
+#### Add firewall rule to CentOS 7
+
+	# firewall-cmd --zone=public --add-port=5432/tcp --permanent 
+
+
 #### Add firewall rule to Compute Engine
 
 	$ gcloud compute firewall-rules create default-allow-pgsql --allow tcp:5432 --direction INGRESS
@@ -263,11 +339,6 @@ Add new access.
 	To show all fields of the firewall, please show in JSON format: --format=json
 	To show all fields in table format, please see the examples in --help.
 
-
-
-#### Add firewall rule to CentOS 7
-
-	# firewall-cmd --zone=public --add-port=5432/tcp --permanent 
 
 #### Source
 ----

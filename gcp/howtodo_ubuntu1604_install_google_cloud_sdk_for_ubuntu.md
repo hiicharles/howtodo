@@ -1,97 +1,39 @@
 Howtodo - Ubuntu 16.04 - Installing Google Cloud SDK for Linux
 ===============================================================
 
-#### Pre-Requisite
+#### Add Repository and Public Key
 
-Require Python 2.7.  Ubuntu 16.04 by default came with Python 2.7.
+    echo "deb http://packages.cloud.google.com/apt cloud-sdk-xenial main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 
-	$ python -V
-	Python 2.7.12
-
-
-#### Download & Extract
-
-	[Download]
-	$ wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-198.0.0-linux-x86_64.tar.gz
-
-
-	[Extract]
-	$ tar -zxvf google-cloud-sdk-198.0.0-linux-x86_64.tar.gz
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add 
 
 
 #### Install
 
-	$ cd google-cloud-sdk
-	$ ./install.sh
+	$ sudo apt-get update
+    $ sudo apt-get install google-cloud-sdk
 
-		Welcome to the Google Cloud SDK!
-		
-		To help improve the quality of this product, we collect anonymized usage data
-		and anonymized stacktraces when crashes are encountered; additional information
-		is available at <https://cloud.google.com/sdk/usage-statistics>. You may choose
-		to opt out of this collection now (by choosing 'N' at the below prompt), or at
-		any time in the future by running the following command:
-		
-		    gcloud config set disable_usage_reporting true
-		
-		Do you want to help improve the Google Cloud SDK (Y/n)?  Y
-		
-		
-		Your current Cloud SDK version is: 198.0.0
-		The latest available version is: 198.0.0
-		
-		┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-		│                                                  Components                                                 │
-		├───────────────┬──────────────────────────────────────────────────────┬──────────────────────────┬───────────┤
-		│     Status    │                         Name                         │            ID            │    Size   │
-		├───────────────┼──────────────────────────────────────────────────────┼──────────────────────────┼───────────┤
-		│ Not Installed │ App Engine Go Extensions                             │ app-engine-go            │ 151.9 MiB │
-		│ Not Installed │ Cloud Bigtable Command Line Tool                     │ cbt                      │   4.7 MiB │
-		│ Not Installed │ Cloud Bigtable Emulator                              │ bigtable                 │   3.7 MiB │
-		│ Not Installed │ Cloud Datalab Command Line Tool                      │ datalab                  │   < 1 MiB │
-		│ Not Installed │ Cloud Datastore Emulator                             │ cloud-datastore-emulator │  17.9 MiB │
-		│ Not Installed │ Cloud Datastore Emulator (Legacy)                    │ gcd-emulator             │  38.1 MiB │
-		│ Not Installed │ Cloud Pub/Sub Emulator                               │ pubsub-emulator          │  33.4 MiB │
-		│ Not Installed │ Emulator Reverse Proxy                               │ emulator-reverse-proxy   │  14.5 MiB │
-		│ Not Installed │ Google Container Local Builder                       │ container-builder-local  │   4.4 MiB │
-		│ Not Installed │ Google Container Registry's Docker credential helper │ docker-credential-gcr    │   3.3 MiB │
-		│ Not Installed │ gcloud Alpha Commands                                │ alpha                    │   < 1 MiB │
-		│ Not Installed │ gcloud Beta Commands                                 │ beta                     │   < 1 MiB │
-		│ Not Installed │ gcloud app Java Extensions                           │ app-engine-java          │ 118.9 MiB │
-		│ Not Installed │ gcloud app PHP Extensions                            │ app-engine-php           │           │
-		│ Not Installed │ gcloud app Python Extensions                         │ app-engine-python        │   6.1 MiB │
-		│ Not Installed │ gcloud app Python Extensions (Extra Libraries)       │ app-engine-python-extras │  28.5 MiB │
-		│ Not Installed │ kubectl                                              │ kubectl                  │  12.3 MiB │
-		│ Installed     │ BigQuery Command Line Tool                           │ bq                       │   < 1 MiB │
-		│ Installed     │ Cloud SDK Core Libraries                             │ core                     │   7.6 MiB │
-		│ Installed     │ Cloud Storage Command Line Tool                      │ gsutil                   │   3.4 MiB │
-		└───────────────┴──────────────────────────────────────────────────────┴──────────────────────────┴───────────┘
-		To install or remove components at your current SDK version [198.0.0], run:
-		  $ gcloud components install COMPONENT_ID
-		  $ gcloud components remove COMPONENT_ID
-		
-		To update your SDK installation to the latest version [198.0.0], run:
-		  $ gcloud components update
-		
-		
-		Modify profile to update your $PATH and enable shell command 
-		completion?
-		
-		Do you want to continue (Y/n)?  Y
-		
-		The Google Cloud SDK installer will now prompt you to update an rc 
-		file to bring the Google Cloud CLIs into your environment.
-		
-		Enter a path to an rc file to update, or leave blank to use 
-		[/home/charles/.bashrc]:  
-		Backing up [/home/charles/.bashrc] to [/home/charles/.bashrc.backup].
-		[/home/charles/.bashrc] has been updated.
-		
-		==> Start a new shell for the changes to take effect.
-		
-		
-		For more information on how to get started, please visit:
-		  https://cloud.google.com/sdk/docs/quickstarts
+        Reading state information... Done
+        Suggested packages:
+        google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python
+        google-cloud-sdk-pubsub-emulator google-cloud-sdk-bigtable-emulator
+        google-cloud-sdk-datastore-emulator kubectl
+        Recommended packages:
+        python-crcmod
+        The following NEW packages will be installed:
+        google-cloud-sdk
+        0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+        Need to get 15.2 MB of archives.
+        After this operation, 116 MB of additional disk space will be used.
+        Get:1 http://packages.cloud.google.com/apt cloud-sdk-xenial/main amd64 google-cloud-sdk all 199.0.0-0 [15.2 MB]
+        Fetched 15.2 MB in 3s (4,273 kB/s)           
+        Selecting previously unselected package google-cloud-sdk.
+        (Reading database ... 214046 files and directories currently installed.)
+        Preparing to unpack .../google-cloud-sdk_199.0.0-0_all.deb ...
+        Unpacking google-cloud-sdk (199.0.0-0) ...
+        Processing triggers for man-db (2.7.5-1) ...
+        Setting up google-cloud-sdk (199.0.0-0) ...
+    
 
 
 #### Initialize - Set user, project and zone
@@ -293,5 +235,5 @@ To update the configuration, refer to
 
 #### Source
 ----
-[Quickstart for Linux](https://cloud.google.com/sdk/docs/quickstart-linux)
+[Quickstart for Debian and Ubuntu](https://cloud.google.com/sdk/docs/quickstart-debian-ubuntu)
 
