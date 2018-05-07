@@ -1,5 +1,5 @@
-Howtodo - Eclipse - Tuning
-==========================
+Howtodo - Application - Eclipse Tuning
+======================================
 
 #### Tweak eclipse.inifile
 ----
