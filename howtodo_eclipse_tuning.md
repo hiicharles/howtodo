@@ -37,5 +37,5 @@ Howtodo - Eclipse - Tuning
 
 #### Source
 ----
-[How to Install Python 3.6 on Ubuntu 16.04](http://www.nicolasbize.com/blog/7-tips-to-speed-up-eclipse/)
+[7 Tips to Speed Up Eclipse](http://www.nicolasbize.com/blog/7-tips-to-speed-up-eclipse/)
 
