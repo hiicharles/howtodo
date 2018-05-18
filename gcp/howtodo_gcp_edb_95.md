@@ -219,7 +219,7 @@ Add new access.
 
     $ sudo systemctl reload postgresql-9.6
     $ sudo systemctl status postgresql-9.6
-
+ls -lt
 
 
 #### Verify database is working fine
@@ -244,7 +244,7 @@ Add new access.
 		/lib64/ld-linux-x86-64.so.2 (0x000055b86569d000)
 
     ** not that libpython3.3m.so.1.0 not found ** 
-
+	
 
     Add to root environment 
   	# vi ~/.bashrc
@@ -308,7 +308,7 @@ Add new access.
     # /opt/EnterpriseDB/LanguagePack/9.5/Python-3.3/bin/python3.3 setup.py install
 
 	Pika installed at  
-    /opt/EnterpriseDB/LanguagePack/9.6/Python-3.3/lib/python3.3/site-packages/pika-0.11.2-py3.3.eggpika-0.11.2-py3.3.egg
+    /opt/EnterpriseDB/LanguagePack/9.5/Python-3.3/lib/python3.3/site-packages/pika-0.11.2-py3.3.eggpika-0.11.2-py3.3.egg
 
     Restart postgresql-9.5
     # systemctl restart postgresql-9.5
