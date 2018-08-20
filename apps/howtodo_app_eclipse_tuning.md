@@ -29,8 +29,8 @@ Howtodo - Application - Eclipse Tuning
 	General > Appearance
 		- Uncheck - Enable Animations
 	Java > Editor > Content Assist 
-		- Uncheck auto activation
-	ava > Editor > Content Assist > Advanced
+		- Uncheck - Enable auto activation
+	Java > Editor > Content Assist > Advanced
 	 	- Uncheck unwanted content assist
   
 
