@@ -48,7 +48,7 @@ Howtodo - Ubuntu1804 - Setup Apache 2
 
         $ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/mysite_com.conf
 
-        $ sudo vi /etc/apache2/sites-available/mysite_com.conf
+        $ sudo nano /etc/apache2/sites-available/mysite_com.conf
         <VirtualHost *:80>
                 ServerAdmin webmaster@localhost
                 ServerName mysite.com
