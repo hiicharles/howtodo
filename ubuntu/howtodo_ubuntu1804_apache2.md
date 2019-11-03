@@ -29,12 +29,12 @@ Howtodo - Ubuntu1804 - Setup Apache 2
 
 1. Create the site directory.
 
-        $ sudo mkdir -p /var/www/mysite.com
+        $ sudo mkdir -p /var/www/mysite_com
         
 
-2. Copy the index.html to /var/www/mysite.com/
+2. Copy the index.html to /var/www/mysite_com/
 
-        $ sudo cp -p /var/www/html/index.html /var/www/mysite.com/
+        $ sudo cp -p /var/www/html/index.html /var/www/mysite_com/
 
 
 3. Add to /etc/hosts
@@ -53,7 +53,7 @@ Howtodo - Ubuntu1804 - Setup Apache 2
                 ServerAdmin webmaster@localhost
                 ServerName mysite.com
                 ServerAlias www.mysite.com
-                DocumentRoot /var/www/mysite.com/
+                DocumentRoot /var/www/mysite_com/
                 ErrorLog ${APACHE_LOG_DIR}/error.log
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
         </VirtualHost>
