@@ -63,7 +63,7 @@ Howtodo - Ubuntu1804 - Setup Apache 2
 
         $ cd /etc/apache2/sites-available
         $ sudo a2ensite mysite_com.conf
-        $ sudo reload apache2
+        $ sudo systemctl reload apache2
 
 
 6. Open web browser
