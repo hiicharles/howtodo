@@ -27,7 +27,7 @@ Howtodo - Ubuntu1804 - Setup Apache 2
 ### Create Virtual Host - mysite.com
 ---
 
-1. Create the site directory.
+1. Create the site root directory in /var/www/.
 
         $ sudo mkdir -p /var/www/mysite_com
         
@@ -37,7 +37,7 @@ Howtodo - Ubuntu1804 - Setup Apache 2
         $ sudo cp -p /var/www/html/index.html /var/www/mysite_com/
 
 
-3. Add to /etc/hosts
+3. Create entries in /etc/hosts
 
         $ sudo nano /etc/hosts
         127.0.0.1 mysite.com
